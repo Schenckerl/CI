@@ -1,0 +1,4 @@
+zip --password Dominik test.zip hw2_logreg/*
+git commit --all -m"testitest"
+git push --all
+
