@@ -20,9 +20,9 @@ import toolbox
 
 def main():
     # Set parameters
-    degree = 1
-    eta = 1.
-    max_iter = 20
+    degree = 20
+    eta = 5.
+    max_iter = 100
 
     # Load data and expand with polynomial features
     f = open('data.json', 'r')

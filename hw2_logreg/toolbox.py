@@ -67,7 +67,7 @@ def plot_logreg(data, degree, theta, E_list):
     # Plot the list of errors
     if len(E_list) > 0:
         fig, ax = plt.subplots(1)
-        ax.plot(E_list,linewidth=2)
+        ax.plot(E_list, linewidth=2)
         ax.set_xlabel('Iteration number')
         ax.set_ylabel('Error')
         ax.set_title('Error monitoring')

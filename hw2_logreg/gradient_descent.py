@@ -34,8 +34,15 @@ def gradient_descent(f, df, x0, learning_rate, max_iter):
     # Implement a gradrient descent algoritm
 
     E_list = np.zeros(max_iter)
-    x = x0
+    current_x = x0
 
+    for i in range(max_iter):
+        E_list[i] = f(current_x)
+        current_x -= learning_rate*df(current_x)
+
+    x = current_x
+    print(x)
+    #E_list = np.zeros(max_iter)
     # END TODO
     ###########
 

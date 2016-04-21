@@ -23,20 +23,18 @@ def cost(theta, x, y):
     # Write the cost of logistic regression as defined in the lecture
     # - Hint: use the logistic function sig imported from the file toolbox
 
-    def subCost(p, y):
-        if not y:
+    def subCost(p, act):
+        if act == 0:
             return -np.log(1-p)
         else:
             return -np.log(p)
 
-    cost_per_datapoint = np.zeros(y.shape)
     c = 0
-
     for i in range(N):
-        z = x[i].T.dot(theta)
-        cost_per_datapoint[i] = subCost(sig(z), y[i])
+        z = np.dot(np.transpose(x[i]), theta)
+        c += subCost(sig(z), y[i])
 
-    c = np.mean(cost_per_datapoint)
+    c /= N
 
     # END TODO
     ###########
@@ -65,9 +63,10 @@ def grad(theta, x, y):
 
     for i in range(N):
         z = x[i].T.dot(theta)
-        g += (sig(z) - y[i]) * x[i]
+        g += (sig(z) - y[i]) * x[i].T
 
-    g /= N
+    for j in range(theta.shape[0]):
+         g[j] /= N
 
     # END TODO
     ###########
